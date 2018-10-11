@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="Buzz! A Javascript HTML5 Audio library">
+    <meta property="og:title" content="Buzz">
+    <meta property="og:description" content="Buzz! A Javascript HTML5 Audio library">
+    <meta property="og:url" content="http://localhost/buzz">
+    <meta property="og:image" content="http://localhost/buzz/img/screenshot.jpg">
+    <link rel="author" href="http://localhost/buzz/humans.txt" type="text/plain">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:extralight,light,regular,bold">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <title>Home page / Buzz</title>
+    
+</head>
+
+<body class="page-home">
+    <div class="topbar"></div>
+    <header class="header">
+        <div class="container">
+            <div class="starburst"></div>
+            <div class="header-logo">
+                <a href="index.html"><img src="img/logo.png"></a>
+                <h1>Buzz!</h1>
+                <p>A Javascript HTML5 Audio library</p>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-navigation">
+                <ul class="navigation">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="documentation/index.html">Documentation</a>
+                        <ul class="navigation-sub">
+                            <li><a href="documentation/buzz/index.html">Buzz</a></li>
+                            <li><a href="documentation/sound/index.html">Sound</a></li>
+                            <li><a href="documentation/group/index.html">Group</a></li>
+                            <li><a href="documentation/events/index.html">Events</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="demo/index.html">Buzz! demo</a></li>
+                </ul>
+                <div class="badges">
+                    <iframe src="http://ghbtns.com/github-btn.html?user=jaysalvat&repo=buzz&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="25"></iframe>
+                    <br>
+                    <iframe src="http://ghbtns.com/github-btn.html?user=jaysalvat&repo=buzz&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="25"></iframe>
+                </div>
+            </div>
+            <div class="col-main">
+                <a class="splash" href="demo/index.html">
+                    <div class="splash-letters">
+                        <div class="letters">
+                            <div class="letter" data-letter="B"></div>
+                            <div class="letter" data-letter="u"></div>
+                            <div class="letter" data-letter="z"></div>
+                            <div class="letter" data-letter="z"></div>
+                            <div class="letter" data-letter="!"></div>
+                        </div>
+                        <div class="letters">
+                            <div class="letter" data-letter="D"></div>
+                            <div class="letter" data-letter="e"></div>
+                            <div class="letter" data-letter="m"></div>
+                            <div class="letter" data-letter="o"></div>
+                        </div>
+                    </div><img class="splash-image" src="img/logo-left.png"></a>
+                <p class="intro"><a href="index.html">Buzz</a> is a small Javascript library that helps you to easily include and manage sounds in your websites using the <a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/audio">HTML5 audio tag</a>. It degrades silently on non-modern browsers.</p>
+                <p><a href="index.html">Buzz</a> is written by <a href="http://jaysalvat.com">Jay Salvat</a> and licensed under the <a href="https://opensource.org/licenses/MIT">MIT</a> License.</p>
+                <p class="button"><a href="http://jaysalvat.github.io/buzz/releases/latest/buzz.zip">Download Buzz! #version</a></p>
+                <p class="button"><a href="https://github.com/jaysalvat/buzz">Fork it on Github</a></p>
+                <h5 id="undefinedinstallation">Installation</h5>
+                <p>Download the <a href="index.html#download">ZIP file</a> above and include it manually or include the <a href="https://cdnjs.com/libraries/buzz">CDN hosted version</a>.</p><pre class="syntax-block">https://cdnjs.com/libraries/buzz</pre>
+                <p>Or install it by <a href="https://www.npmjs.com/package/buzz">NPM</a>.</p><pre class="syntax-block">$ npm install --save buzz</pre>
+                <p>Or install it by <a href="https://bower.io">Bower</a>.</p><pre class="syntax-block">$ bower install --save buzz</pre>
+                <h5 id="undefinedapi-example">API Example</h5><pre class="syntax-block">var sound = new buzz.sound(<span class="syntax-string">"/sounds/sound"</span>, {
+    formats: [ <span class="syntax-string">"ogg"</span>, <span class="syntax-string">"mp3"</span>, <span class="syntax-string">"aac"</span> ]
+});
+
+sound.play()
+     .fadeIn()
+     .loop()
+     .bind(<span class="syntax-string">"timeupdate"</span>, function() {
+        var timer = buzz.toTimer(this.getTime());
+        document.getElementById(<span class="syntax-string">"timer"</span>).innerHTML = timer;
+     });</pre>
+                <script src="../js/bar.js"></script>
+            </div>
+            <div class="col-sidebar sidebar">
+                <div class="donation">
+                    <h5>Buy me a beer!</h5>
+                    <p><strong>Buying me a beer</strong> will motivate me to keep this project going and allow for further development.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="text" size="4" name="amount" value="5.0">
+                        <select name="currency_code">
+                            <option value="USD">$</option>
+                            <option value="EUR">&euro;</option>
+                        </select>
+                        <input type="submit" value="Paypal">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="jay.salvat@gmail.com">
+                        <input type="hidden" name="item_name" value="SOME BEERS FOR JAY, THE BUZZ! GUY...">
+                        <input type="hidden" name="item_number" value="BUZZ-DONATE">
+                        <input type="hidden" name="no_shipping" value="1">
+                        <input type="hidden" name="no_note" value="1">
+                        <input type="hidden" name="tax" value="0">
+                        <input type="hidden" name="bn" value="PP-DonationsBF">
+                        <input type="hidden" name="lc" value="US">
+                    </form>
+                </div>
+                <div class="sponsors">
+                    <h5>Sponsors</h5>
+                    <p class="extra-sponsor">This project is supported by <a href="https://hostpresto.com/filemaker-hosting/">HostPresto</a>.</p>
+                    <script id="_adpacks_js" src="http://cdn.adpacks.com/adpacks.js?zoneid=1386&serve=C6SI42Y&placement=jaysalvatcom"></script><span class="adblocked"><span class="carbon-wrap"><a class="carbon-img" href="https://adblockplus.org/en/faq_basics#disable"><img src="img/adblocked.png" alt="OMG You killed my Sponsor!" border="0" height="100" width="130"></a><a class="carbon-text" href="https://adblockplus.org/en/faq_basics#disable"><strong>OMG You killed my Sponsor...</strong><br>Please support open-source and disable Adblock on this domain.</a></span></span>
+                </div>
+                <div class="used">
+                    <h5>They use Buzz!</h5>
+                    <p><a href="http://www.peugeot.com/fr">Peugeot</a>, the legendary major French car brand, uses Buzz in its <a href="http://graphicnovel-hybrid4.peugeot.com/start.html">stunning Hybrid4 website.</a></p>
+                    <p><a href="http://www.putchu.be/intro_EN.html">Putchu</a>, an amazing HTML5 Platform/Adventure 2D game in pixel art.</p>
+                </div>
+                <div class="announcement">If you are looking for <a href="http://buzzjs.com/">BuzzJS </a>the Conference Series, <a href="http://buzzjs.com/">click here</a>.</div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2018 <a href="http://jaysalvat.com">Jay Salvat</a></p>
+        </div>
+    </footer>
+    <script src="js/bundle.min.js"></script>
+</body>
+
+</html>

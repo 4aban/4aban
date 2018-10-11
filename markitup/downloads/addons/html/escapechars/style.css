@@ -1,0 +1,7 @@
+/* -------------------------------------------------------------------
+// markItUp!
+// By Jay Salvat - http://localhost/markitup/
+// ------------------------------------------------------------------*/
+.markItUp .encodechars a {
+	background-image:url("images/encodechars.png");
+}

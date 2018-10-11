@@ -1,0 +1,10 @@
+/* -------------------------------------------------------------------
+// markItUp!
+// By Jay Salvat - http://localhost/markitup
+// ------------------------------------------------------------------*/
+.markItUp .htmlTidyRepair a {
+	background-image:url("images/htmltidyrepair.png");
+}
+.markItUp .htmlTidyReport a {
+	background-image:url("images/htmltidyreport.png");
+}

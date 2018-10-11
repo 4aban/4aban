@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="jQuery Face Detection Plugin">
+    <meta property="og:description" content="jQuery Face Detection Plugin - A jQuery/Zepto plugin to detect faces on images, videos and canvases.">
+    <meta property="og:url" content="http://localhost/fd">
+    <meta property="og:image" content="http://localhost/fd/img/screenshot.jpg">
+
+    <title>jQuery/Zepto Face Detection Plugin</title>
+
+    <link rel="author" href="humans.txt" type="text/plain">
+    <link rel="stylesheet" href="css/styles.min.css">
+
+</head>
+<body>
+    <div class="loading">Loading...</div>
+
+    <div class="content">
+
+        <!-- Jay bar -->
+
+        <div class="topbar" ></div>
+
+        <!-- Image demo -->
+
+        <section class="splash">
+            <div class="container">
+                <i class="icon-logo logo wow rubberBand"></i>
+
+                <div class="demo-img-container">
+                    <div class="demo-img-wrapper">
+                        <img id="demo-img" class="demo-img" src="img/faces.jpg">
+                        <div class="spinner"></div>
+                    </div>
+                    <a class="do-img-detect" href="index.html#">
+                        <i class="icon-tryit demo-img-click wow rubberBand" data-wow-delay="1s"></i>
+                    </a>
+                    <div id="portraits" class="portraits"></div>
+                </div>
+
+                <!-- sponsors -->
+
+                <div class="sponsors fadeIn wow" data-wow-delay="1s">
+                    <script async type="text/javascript" src="js/carbon.js" id="_carbonads_js"></script>
+                </div>
+            </div>
+        </section>
+
+        <!-- Text blocks -->
+
+        <section class="block">
+            <div class="container">
+                <div class="row">
+                    <div class="wow fadeIn medium-4" data-wow-delay="0.1s">
+                        <h4>Credits</h4>
+                        <p>
+                            jQuery plugin written by <a href="http://localhost">Jay Salvat</a>.
+                            Full credits for the Face detection algorithm go to <a href="https://github.com/liuliu/ccv">Liu Liu</a>.
+                        </p>
+                        <p>This project is supported by <a href="https://hostpresto.com/filemaker-hosting/">HostPresto</a></p>
+                    </div>
+                    <div class="wow fadeIn medium-4" data-wow-delay="0.3s">
+                        <h3>Buy me a beer!</h3>
+                        <p>
+                            Feeling Generous?<br>Feel free to buy me a beer.
+                            <br>
+                            Beer is good for motivation and further developments.
+                        </p>
+
+                        <div class="donate-form">
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                                <input type="submit" value="Go Paypal">
+
+                                <input type="hidden" name="amount" value="">
+                                <input type="hidden" name="cmd" value="_donations">
+                                <input type="hidden" name="business" value="jay.salvat@gmail.com">
+                                <input type="hidden" name="lc" value="US">
+                                <input type="hidden" name="item_name" value="SOME BEERS FOR JAY, THE FACEDETECTION GUY...">
+                                <input type="hidden" name="item_number" value="FACEDETECTION-DONATE">
+                                <input type="hidden" name="no_note" value="0">
+                                <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="wow fadeIn medium-4" data-wow-delay="0.5s">
+                        <h4>Help & support</h4>
+                        <p>Need help for this plugin?<br>Don't waste your precious time and hire me for work right away.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video demo -->
+
+        <section class="splash hide-on-mobile">
+            <div class="container">
+                <div class="demo-video-container">
+                    <div class="demo-video-wrapper">
+                        <video id="demo-video" class="demo-video" loop>
+                            <source src="/videos/danser.mp4"  type="video/mp4">
+                            <source src="/videos/danser.ogv"  type="video/ogg">
+                            <source src="/videos/danser.webm" type="video/webm">
+                        </video>
+                        <i id="play-video" class="icon-play"></i>
+                    </div>
+                    <a class="do-video-detect" href="index.html#">
+                        <i class="icon-tryit demo-video-click wow rubberBand" data-wow-delay="1s"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="overlay">
+                <span>This demo is not available<br>on this device</span>
+            </div>
+        </section>
+
+        <!-- separator -->
+
+        <section class="block hide-on-mobile separator">
+            <div class="container">
+                <div class="row">
+                    <div class="medium-12">
+                        <i class="icon-logo"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Source and download -->
+
+        <section class="block-alt">
+            <i class="icon-background icon-github"></i>
+
+            <div class="container">
+                <h1 class="baseline">
+                    A jQuery/Zepto Face Detection plugin
+                    that works on images and videos...
+
+                    <a class="tweet-it icon-twitter" href="https://twitter.com/intent/tweet?url=localhost/fd&text=jQuery%20Face%20Detection.%20A%20jQuery%20Face%20Detection%20plugin%20that%20works%20on%20images%20and%20videos..."></a>
+                </h1>
+
+                <div class="row">
+                    <div class="medium-6">
+                        <a class="wow flipInX btn btn-download" href="http://jaysalvat.github.io/jquery.facedetection/releases/latest/jquery.facedetection.zip" onclick="ga('send', 'event', 'Download', 'Click', '/jquery.facedetection.zip')">
+                            Download Zip
+                            <small><span id="version-number"></span> on <span id="version-date"></span></small>
+                            <i class="icon-download"></i>
+                        </a>
+                    </div>
+                    <div class="medium-6">
+                        <a class="wow flipInX btn btn-github" data-wow-delay="250ms" href="https://github.com/jaysalvat/jquery.facedetection" onclick="ga('send', 'event', 'Go to Github', 'Click', 'https://github.com/jaysalvat/jquery.facedetection')">
+                            Source code
+                            <small>On Github</small>
+                            <i class="icon-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+
+        <footer class="footer">
+            <div class="container">
+                <i class="icon-logo"></i>
+                <div class="footer-copyright">
+                    &#169; <span class="footer-year"></span> — <a href="http://localhost">Jay Salvat</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bar.js"></script>
+    <script src="js/jquery.facedetection/dist/jquery.facedetection.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/app.min.js"></script>
+
+    <!-- Probably what you're looking for -->
+    <script src="js/demo.js"></script>
+</body>
+</html>

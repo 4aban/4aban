@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Documentation :: markItUp! Universal Markup jQuery Editor</title>
+<meta name="Description" content="markItUp! 1.1.X documentation and code samples">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="alternate" type="application/rss+xml" title="markItUp! Updates" href="http://feeds.feedburner.com/jaysalvat/markitup" />
+<link type="text/css" rel="stylesheet" href="../_css/reset.css" />
+<link type="text/css" rel="stylesheet" href="../_css/style.css" />
+<!--[if lt IE 7]>
+<link type="text/css" rel="stylesheet" href="../_css/style-ie6.css" />
+<![endif ]-->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">_uacct = "UA-111088-7"; urchinTracker();</script>
+</head>
+<body id="documentation">
+<script type="text/javascript" src="../_scripts/jquery.pack.js"></script>
+<script type="text/javascript" src="../_scripts/app.js"></script>
+<div id="container">
+	<div id="superheader">
+		    <div id="wantmore">
+        <h6>Want more?</h6>
+        <ul>
+            <li>
+                <a href="http://localhost/buzz" title="Buzz">Buzz</a>
+                <p>A powerful Javascript audio library over the HTML5 audio element.</p>
+            </li>
+            <li>
+                <a href="http://localhost/vegas" title="Vegas">Vegas</a>
+                <p>A jQuery plugin to to add beautiful fullscreen backgrounds to your webpages and create amazing Slideshows.</p>
+            </li>
+            <li>
+                <a href="http://sundaymorning.jaysalvat.com" title="SundayMorning">SundayMorning</a>
+                <p>A jQuery plugin to translate content on the fly.</p>
+            </li>
+            <li>
+                <a href="http://localhost/fd" title="Face Detection">Face Detection</a>
+                <p>A jQuery plugin to detect faces in pictures.</p>
+            </li>
+        </ul>
+        <span class="arrow"></span>
+    </div>
+	</div>
+	
+	<div id="header">
+				<div class="wrapper">
+			<div><a href="../home/index.html">markItUp!</a></div>
+			<p>Universal markUp editor</p>
+			<div id="beta">Stable version</div>
+		</div>
+	</div>                     
+
+  <div id="content">
+    <h1>Documentation 1.1</h1>
+<!--    <p class="intro">This project has taken more time to develop than I anticipated. Since  my time is limited, personal technical <u>support can be given to those  who've made a donation</u> only.</p>
+-->    
+    <h2>Installation</h2>
+    <p>1. Include <a href="http://www.jquery.com">jQuery</a> and <strong>markItUp!</strong> javascript files.</p>
+
+<pre>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;markitup/jquery.markitup.js&quot;&gt;&lt;/script&gt;
+</pre>
+    <p>2. Include the JSon file with the settings of your markup set. The default one in this example.</p>
+<pre>&lt;script type=&quot;text/javascript&quot; src=&quot;markitup/sets/default/set.js&quot;&gt;&lt;/script&gt;
+</pre>
+    <p>Or define your settings directly in the page</p>
+
+<pre>&lt;script type=&quot;text/javascript&quot; &gt;
+   mySettings = { ... }
+&lt;/script&gt;
+</pre>
+
+    <p>3. Include the CSS files.</p>
+<pre>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;markitup/skins/markitup/style.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;markitup/sets/default/style.css&quot; /&gt;
+</pre>
+
+    <p>4. Then plug <b>markItUp!</b> on a specific textarea by Id</p>
+<pre>&lt;script type=&quot;text/javascript&quot; &gt;
+   $(document).ready(function() {
+      $(&quot;#markItUp&quot;).markItUp(mySettings);
+   });
+&lt;/script&gt;
+...
+&lt;textarea id=&quot;markItUp&quot;&gt;&lt;/textarea&gt;
+</pre>
+    <p>Or on some specific textareas by class</p>
+    <pre>&lt;script type=&quot;text/javascript&quot; &gt;
+   $(document).ready(function() {
+      $(&quot;.markItUp&quot;).markItUp(mySettings);
+   });
+&lt;/script&gt;
+...
+&lt;textarea class=&quot;markItUp&quot;&gt;&lt;/textarea&gt;<br />&lt;textarea class=&quot;markItUp&quot;&gt;&lt;/textarea&gt;
+</pre>
+    <p>or on all textareas</p>
+    <pre>&lt;script type=&quot;text/javascript&quot; &gt;
+   $(document).ready(function() {
+      $(&quot;textarea&quot;).markItUp(mySettings);
+   });
+&lt;/script&gt;
+...
+&lt;textarea&gt;&lt;/textarea&gt;
+</pre>
+    <h2>Keys</h2>
+    <p>Differents insertion mode can be used by pressing key.    <br />
+      <span class="warning">Opera doesn&rsquo;t fire event on Ctrl, Shift, Alt keys.</span></p>
+    <h5>Ctrl Key</h5>
+    <p><strong>Ctrl   + Click on a button: </strong>Call a markup insertion and get the selection back.</p>
+    <h5>Shift Key</h5>
+    <p><strong>Shift  + Click on a button: </strong>Call a markup insertion and get the selection with new added markups.</p>
+    <p>Ctrl Key + &ldquo;Key&rdquo; triggers the button with <a href="index.html#accesskey">accessKey defined</a>. </p>
+    <h5><a name="multiinsert" id="multiinsert"></a>Ctrl+Shift Keys</h5>
+    <p><strong>Ctrl + Shift   +  Click on a button: </strong>Call a markup insertion on every lines of the selection instead of the whole selection.</p>
+    <h5>Alt Key</h5>
+    <p><strong>Alt Key +  Click on a button: </strong>Call an alternative markup insertion if defined (See <a href="index.html#MagicMarkups">MagicMarkups</a>).    </p>
+    <h2>Customization</h2>
+    <h3>Graphic customization </h3>
+    <h5>Before markItUp!</h5>
+    <p><img src="../_images/cssmap-before.png" alt="Before markItUp!" width="600" height="246" class="cssmap" /></p>
+    <h5>After markItUp!</h5>
+    <p><img src="../_images/cssmap-after.png" alt="After markItUp!" width="600" height="500" class="cssmap" /></p>
+    <p><strong>Notes:</strong> </p>
+    <ul>
+      <li>Every button has a .markItUpButton class</li>
+      <li>Every button has a .markItUpButtonX, .markItUpButtonX-X, ... (X is the position in the toolbar).</li>
+      <li>You can define a specific <span class="properties">classname</span> for each button</li>
+    </ul>
+    <h3><a name="settings" id="settings"></a>Markup language customization</h3>
+    <ul>
+      <li><span class="properties"><strong><a name="prefix" id="prefix"></a>nameSpace</strong></span><br />
+        <em class="waiting">string</em><br />
+         Apply a specific className to the  wrapping Div. Useful to prevent CSS conflicts between instances.
+<pre>var myHtmlSettings = { nameSpace:'html',
+	...
+</pre>	 
+<pre>var myBbcodeSettings = { nameSpace:'bbcode',
+	...
+</pre>	 
+<pre>// CSS
+.html .markItUpButton1 a {
+    background-image:url(images/h1.png);
+}
+.bbcode .markItUpButton1 {
+    background-image:url(images/bold.png);
+}
+</pre>
+	  </li>
+      <li><span class="properties">resizeHandle</span><br />
+        <span class="waiting">Boolean</span><br />
+      Enable/Disable the handle to resize the editor.</li>
+      <li><span class="properties">previewInWindow</span><br />
+        <span class="waiting">string</span><br />
+        Display the preview in a popup window with <a href="http://www.w3schools.com/htmldom/met_win_open.asp">comma-separated list of specs</a>. If empty or false, the preview will be displayed in the built-in iFrame preview.
+      <pre>previewInWindow: 'width=800, height=600, resizable=yes, scrollbars=yes'</pre>
+	  </li>
+      <li><span class="properties">previewAutoRefresh</span><br />
+        <span class="waiting">Boolean</span><br />
+      AutoRefresh the preview iFrame or windown swhen the editor is used. </li>
+      <li><span class="properties">previewParserPath</span><br />
+        <span class="waiting">string &gt; path</span><br />
+        You can set the path of your own parser to preview markup languages other than html. If this property is set, the built-in preview will be overridden by your own preview script.<br />
+        <span class="examples">Use ~/ for markItUp!  root.</span></li>
+      <li><span class="properties">previewParserVar</span><br />
+        <span class="waiting">string &gt; default: data</span><br />
+        Name of the var posted with the editor content to the parser defined above.</li>
+      <li><span class="properties">previewTemplatePath</span><br />
+        <span class="waiting">string &gt; path &gt; default : ~/templates/preview.html</span><br /> 
+        Path to the Html preview template. <br />
+        <span class="examples">Use ~/  for markItUp! root.</span>
+		<pre>previewTemplatePath: '~/parsers/wikiparser.php',</pre>
+	  </li>
+      <li><span class="properties">previewParser</span><br />
+        <span class="waiting">function &gt; default: false</span><br /> 
+        Parse the content with the javascript parser of your choice before passing it to the preview. <br />
+		<pre>previewParser: function(content) {
+    return myJavascriptParser(content);
+}, </pre>
+	  </li>
+      <li><span class="properties">previewPosition</span><br />
+        <span class="waiting">string &gt; before|after &gt; default: after</span><br /> 
+        Position of the Built-in preview before or after the main textarea.<br />
+		<pre>previewPosition: 'before',</pre>
+	  </li>
+      <li><strong class="properties"><a name="onenter" id="onenter"></a>onEnter</strong><br />
+        <em class="waiting">hash</em><br />
+        Define what to do when Enter key is pressed.
+        <ul>
+          <li><span class="properties"><strong>keepDefault</strong></span><br />
+            <em class="waiting">Boolean</em><br />
+            Keep <span class="waiting">(true)</span> or not <span class="waiting">(false)</span> the default behaviour of the key. </li>
+          <li><span class="properties">openWith, closeWith, replaceWith, ...<br />
+          </span>See <a href="index.html#markupset">markutSet chapter</a>.</li>
+        </ul>
+      </li>
+      <li><strong class="properties"><a name="onctrlenter" id="onctrlenter"></a>onCtrlEnter</strong><br />
+        <em class="waiting">hash</em><br />
+        Define what to do when Ctrl+Enter keys are pressed.
+        <ul>
+          <li><strong class="properties">keepDefault</strong><br />
+            <em class="waiting">Boolean</em><br />
+            Keep <span class="waiting">(true)</span> or not <span class="waiting">(false)</span> the default behaviour of the key. </li>
+          <li><span class="properties">openWith, closeWith, replaceWith, ...<br />
+          </span>See <a href="index.html#markupset">markutSet chapter</a>.<br />
+          <pre>onCtrlEnter: {keepDefault:false, openWith:'\n&lt;p>', closeWith:'&lt;/p>'}</pre>
+          </li>
+        </ul>
+      </li>
+      <li><strong class="properties"><a name="onshiftenter" id="onshiftenter"></a>onShiftEnter</strong><br />
+        <em class="waiting">hash</em><br />
+        Define what to do when Shift+Enter keys are pressed.
+        <ul>
+          <li><span class="properties"><strong>keepDefault</strong></span><br />
+            <em class="waiting">Boolean</em><br />
+            Keep <span class="waiting">(true)</span> or not <span class="waiting">(false)</span> the default behaviour of the key. </li>
+          <li><span class="properties">openWith, closeWith, replaceWith, ...<br />
+          </span>See <a href="index.html#markupset">markutSet chapter</a>.<br />
+          <pre>onShiftEnter: {keepDefault:false, replaceWith:'&lt;br />\n'}</pre>
+          </li>
+        </ul>
+      </li>
+      <li><strong class="properties"><a name="ontab" id="ontab"></a>onTab</strong><br />
+        <em class="waiting">hash</em><br />
+        Define what to do when Tab key is pressed.
+        Warning, this key is also used to jump at the end of a new inserted markup.
+        <ul>
+          <li><span class="properties"><strong>keepDefault</strong></span><br />
+            <em class="waiting">Boolean</em><br />
+            Keep or overide the default behaviour of the key.</li>
+          <li><span class="properties">openWith, closeWith, replaceWith, ...<br />
+          </span>See <a href="index.html#markupset">markutSet chapter</a>.</li>
+        </ul>
+      </li>
+      <li><strong class="properties"><a name="beforeinsert" id="beforeinsert"></a>beforeInsert</strong><br />
+        <em class="waiting">function</em><br />
+        Function to be called before any markup insertion.
+ See <a href="index.html#callbacks">Callbacks section </a>for more details.
+ <pre>beforeInsert:function() {
+   alert(&quot;A markup is going to be inserted&quot;);
+}
+</pre>		
+	  </li>
+      
+      <li><strong class="properties"><a name="afterinsert" id="afterinsert"></a>afterInsert</strong><br />
+        <em class="waiting">function</em><br />
+        Function to be called after any markup insertion. See <a href="index.html#callbacks">Callbacks section </a>for more details.
+        <pre>afterInsert:function() {
+   alert(&quot;A markup has just been inserted&quot;);
+}
+</pre>
+<!--	
+</li>
+      <li><a name="placeholder" id="placeholder"></a> <strong class="properties">placeHolder</strong><br />
+        <em class="waiting">string / function</em><br />
+        Placeholder text to be inserted  for any markup insertion if no text is selected by the user. <br />
+        <a href="#magicmarkups">Allows MagicMarkups</a><br />
+<pre>
+placeHolder:&quot;Your text here...&quot;
+</pre>	
+	  </li>
+-->
+      <li><a name="markupset" id="markupset"></a> <strong class="properties">markupSet</strong><br />
+        <em class="waiting">hash</em><br />
+        Note that most of the settings below are used by the engine for all insertion calls (<a href="index.html#externalcall">$.markItUp( {} ),</a> <a href="index.html#onenter">onEnter</a>, <a href="index.html#onshiftenter">onShiftEnter</a>, <a href="index.html#onctrlenter">onCtrlEnter, onTab</a>) except  exclusive button properties marked by <span class="ticked">* </span>
+        <ul>
+          <li><span class="properties"><strong><a name="name" id="name"></a>name</strong></span> <span class="ticked">*</span> <br />
+            <em class="waiting">string</em><br />
+            Button name<br />
+<pre>{name:&quot;Strong&quot;, ... }
+</pre>			
+		  </li>
+          <li><strong class="properties"><a name="classname" id="classname"></a>className</strong> <span class="ticked">*</span> <br />
+            <em class="waiting">string</em><br />
+            Classname to be applied to this very button.<br />
+<pre>{ name:&quot;Strong&quot;, openWith:&quot;&lt;strong&gt;&quot;, closeWith:&quot;&lt;/strong&gt;&quot;, className:&quot;myStrongButton&quot; }</pre>
+<pre>// CSS
+.myStrongButton {
+    border:1px solid red;
+}
+</pre>
+          </li>
+          <li><strong class="properties"><a name="accesskey" id="accesskey"></a>key</strong> <span class="ticked">*</span> <br />
+            <em class="waiting">string</em><br />
+            Shortcut key to be applied to the button.<strong> Ctrl+key </strong>trigger the action of a button. <br />
+<pre>{ name:&quot;Strong&quot;, openWith:&quot;&lt;strong&gt;&quot;, closeWith:&quot;&lt;/strong&gt;&quot;, key:&quot;S&quot; }</pre>
+		  </li>
+          <li><span class="properties"><strong>openWith</strong></span><br />
+            <em class="waiting">string | function</em><br />
+            Markup to be added before  selection. Accepts functions. See <a href="index.html#callbacks">Callbacks section </a>for more details.<br />
+            <a href="index.html#magicmarkups">Allows MagicMarkups</a><br />
+<pre>{ name:&quot;Strong&quot;, openWith:&quot;&lt;strong&gt;&quot;, closeWith:&quot;&lt;/strong&gt;&quot; }</pre>
+		  </li>
+          <li><strong class="properties">closeWith</strong><br />
+            <em class="waiting">string | function</em><br />
+            Markup to be added after   selection. Accepts functions.  See <a href="index.html#callbacks">Callbacks section </a>for more details.<br />
+            <a href="index.html#magicmarkups">Allows MagicMarkups</a><br />
+<pre>{ name:&quot;Strong&quot;, openWith:&quot;[b]&quot;, closeWith:&quot;[/b]&quot; }</pre>
+		  </li>
+          <li><strong class="properties">replaceWith</strong><br />
+            <em class="waiting">string | function</em><br />
+            Text to be added in place of the cursor or selection. Accepts functions.  See <a href="index.html#callbacks">Callbacks section </a>for more details.<br />
+            <a href="index.html#magicmarkups">Allows MagicMarkups</a><br />
+<pre>{ name:&quot;Image&quot;, replaceWith:&quot;&lt;img src=&quot;myImage.png&quot;/&gt;&quot; }</pre>
+		  </li>
+          
+          <li><strong class="properties">openBlockWith</strong><br />
+            <em class="waiting">string | function</em><br />
+            Text to be added before a whole  block. Accepts functions.  See <a href="index.html#callbacks">Callbacks section </a>for more details.<br />
+            <a href="index.html#magicmarkups">Allows MagicMarkups</a><br />
+<pre>{   name:&quot;List&quot;, 
+    openBlockWith:&quot;&lt;ul>&quot;, 
+    openWith:&quot;&lt;li>&quot;, closeWith:&quot;&lt;/li>&quot;, 
+    closeBlockWith:&quot;&lt;/ul>&quot;, 
+    multiline:true 
+}</pre>
+		  </li>
+          <li><strong class="properties">closeBlockWith</strong><br />
+            <em class="waiting">string | function</em><br />
+            Text to be added after a whole block. Accepts functions.  See <a href="index.html#callbacks">Callbacks section </a>for more details.<br />
+            <a href="index.html#magicmarkups">Allows MagicMarkups</a><br />
+<pre>{   name:&quot;List&quot;, 
+    openBlockWith:&quot;&lt;ul>&quot;, 
+    openWith:&quot;&lt;li>&quot;, closeWith:&quot;&lt;/li>&quot;, 
+    closeBlockWith:&quot;&lt;/ul>&quot;, 
+    multiline:true 
+}</pre>
+		  </li>     
+
+          <li><strong class="properties">multiline</strong><br />
+            <em class="waiting">boolean</em><br />
+           Set whether the tags has to be inserted at each line or on the whole selected block.
+		  </li>              
+
+          <li><strong class="properties">placeHolder</strong><br />
+            <em class="waiting">string | function</em><br />
+            Placeholder text to be inserted   if no text is selected by the user.
+			<!--Overide the global <a href="#placeholder">placeHolder</a> settings.-->
+			<br />
+            <a href="index.html#magicmarkups">Allows MagicMarkups</a><br />
+<pre>{ name:&quot;Bold&quot;, placeHolder:&quot;Your bold text here&quot;, openWith:&quot;&lt;b&gt;&quot;, closeWith:&quot;&lt;/b&gt;&quot; }</pre>
+		  </li>
+          <li><strong class="properties">beforeInsert</strong><br />
+            <em class="waiting">function</em><br />
+            Function to be called just before a markup insertion. If a global <a href="index.html#beforeinsert">beforeInsert</a> callback is already defined this function is fired just after.   See <a href="index.html#callbacks">Callbacks section </a>for more details.<br />
+<pre>{ name:&quot;Bold&quot;, openWith:&quot;&lt;b&gt;&quot;, closeWith:&quot;&lt;/b&gt;&quot;, 
+    beforeInsert:function(h) {
+        alert(h.openWith+&quot; is going to be inserted&quot;);
+    }
+}
+</pre>
+		</li>
+          <li><strong class="properties">afterInsert</strong><br />
+            <em class="waiting">function </em><br />
+            Function to be called just after a markup insertion. If a global <a href="index.html#afterinsert">afterInsert</a> callback is already defined this function is fired before.   See <a href="index.html#callbacks">Callbacks section </a>for more details.<br />
+<pre>{ name:&quot;Bold&quot;, openWith:&quot;&lt;b&gt;&quot;, closeWith:&quot;&lt;/b&gt;&quot;, 
+    afterInsert:function(h) {
+        alert(h.closeWith+&quot; has just been inserted&quot;);
+    }
+}
+</pre>
+		</li>
+          <li><strong class="properties">beforeMultiInsert </strong><br />
+            <em class="waiting">function </em><br />
+            Function to be called before a <a href="index.html#multiinsert">multiline markup insertion</a>.   See <a href="index.html#callbacks">Callbacks section </a>for more details.<br />
+<pre>{ name:&quot;Bold&quot;, openWith:&quot;&lt;b&gt;&quot;, closeWith:&quot;&lt;/b&gt;&quot;, 
+    beforeMultiInsert:function(h) {
+        alert(h.openWith+&quot; is going to be inserted in several lines&quot;);
+    }
+}
+</pre>
+		</li>
+          <li><strong class="properties">afterMultiInsert </strong><br />
+            <em class="waiting">function </em><br />
+            Function to be called after a<a href="index.html#multiinsert"> multiline markup insertion</a>.   See <a href="index.html#callbacks">Callbacks section </a>for more details.<br />
+<pre>{ name:&quot;Bold&quot;, openWith:&quot;&lt;b&gt;&quot;, closeWith:&quot;&lt;/b&gt;&quot;, 
+    afterMultiInsert:function(h) {
+        alert(h.closeWith+&quot; has just been inserted in several lines&quot;);
+    }
+}
+</pre>
+		</li>
+          <li><span class="properties">dropMenu</span> <span class="ticked">*</span> <br />
+            <span class="waiting">hash</span><br />
+            Open a dropdown menu with another button set <a href="index.html#markupset">defined as above</a>.
+<pre>{ name:'Fonts', dropMenu: [
+    { name:'Arial',     replaceWith:'Arial, Helvetica, sans-serif'},
+    { name:'Verdana',   replaceWith:'Verdana, Arial, Helvetica, sans-serif'},
+    { name:'Trebucher', replaceWith:'&quot;Trebuchet MS&quot;, Tahoma, sans-serif'},
+    { name:'Times',     replaceWith:'&quot;Times New Roman&quot;, Times, serif'}
+  ]
+}
+</pre>
+		</li>
+        </ul>
+      </li>
+    </ul>
+    <h3><a name="magicmarkups" id="magicmarkups"></a>Magic Markups </h3>
+    <p>Some of the properties above accept special markups like  <span class="examples">[![a]!]</span>, <span class="examples">[![a:!:b]!] </span>to display a prompt window and <span class="examples">(!(a)!), (!(a|!|b)!)</span> to call an alternative insertion when Alt Key is hold <span class="warning">(when supported by the browser)</span>. </p>
+    
+	<p><strong>Ex. </strong>Ask for <span class="examples">Src</span>  with <span class="examples">Http://</span> default value and then ask for <span class="examples">Alt text</span> before inserting <span class="examples">&lt;img src=&quot;...&quot; alt=&quot;...&quot; /&gt;</span></p>
+	<pre>replaceWith:'&lt;img src=&quot;[![Src:!:http://]!]&quot; alt=&quot;[![Alt text]!]&quot; /&gt;'</pre>
+
+	<p><strong>Ex.</strong> Insert <span class="examples">&lt;p&gt;</span> or <span class="examples">&lt;p style=&quot;text-align:justify&quot;&gt;</span> if <strong>Alt key</strong> is hold. </p>
+	<pre>openWith:'&lt;p(!( style=&quot;text-align:justify&quot;)!)&gt;'</pre>
+
+	<p><strong>Ex.</strong> Insert <span class="examples">&lt;td&gt; </span>and <span class="examples">&lt;/td&gt;</span> or <span class="examples">&lt;th&gt;</span> and <span class="examples">&lt;/th&gt;</span> if <strong>Alt key</strong> is hold. </p>
+	<pre>openWith:'&lt;(!(td|!|th)!)&gt;', closeWith:'&lt;/(!(td|!|th)!)&gt;'</pre>
+
+	<p><strong>Ex.</strong> Insert <span class="examples">&lt;p&gt;</span> or ask Class before insering <span class="examples">&lt;p class=&quot;...&quot;&gt;</span> if <strong>Alt key</strong> is hold.</p>
+	<pre>openWith:'&lt;p(!( class=&quot;[![Class]!]&quot;)!)&gt;'</pre>
+
+    <h3><a name="callbacks" id="callbacks"></a>Callbacks</h3>
+	<p>When a callback function is called, the parameters below are passed.</p>
+	<pre>{ name:'Strong',
+  openWith:'[b]',
+  closeWith:'[/b]',
+  beforeInsert:function(h) {
+    text = &quot;You've just click the &quot;+h.name+&quot; button &quot;;
+    text+= &quot;which will wrap '&quot;+h.selection+&quot;' &quot;;
+    text+= &quot;with &quot;+h.openWith+&quot; and &quot;+h.closeWith+&quot;.&quot;;
+    alert(text);
+  },
+  afterInsert:function(h) {
+    text = &quot;The result is now:\n&quot;;
+    text+= $(h.textarea).val();
+    alert(text);
+  }
+}</pre>
+    <ul>
+    <li><span class="properties">selection</span><br />
+    Returns the selection.</li>
+    <li><span class="properties">textarea</span><br />
+    Returns the textarea object.</li>
+     <li><span class="properties">caretPosition</span><br />
+     Returns the position of the selection.</li>
+     <li><span class="properties">scrollPosition</span><br />
+Returns the position of the scrollbar.</li>
+     <li>All the <a href="index.html#markupset">button properties</a>
+    clicked are returned:
+      <ul>
+    	<li><span class="properties">openWith</span></li>
+        <li><span class="properties">closeWith</span></li>
+        <li><span class="properties">placeHolder</span></li>
+        <li><span class="properties">className</span></li>
+        <li>and so on...</li>
+    </ul>    
+    </li>
+    <li><span class="properties">line</span><br />
+    If a multi-line edition is trigged (Ctrl + Shift + click). This property return the number of the line being processed.</li>
+    <li>Key events:
+      <ul>
+        <li><span class="properties">ctrlKey<br />
+        </span>Returns <span class="examples">true</span> if the Control key is pressed when the callback is fired.</li>
+        <li><span class="properties">shiftKey<br />
+        </span>Returns <span class="examples">true</span> if the Shift key is pressed when the callback is fired.</li>
+        <li><span class="properties">altKey<br />
+        </span>  Returns <span class="examples">true</span> if the Alt key is pressed when the callback is fired.</li>
+    </ul>
+    </li>
+	</ul>
+    <h3><a name="externalcall" id="externalcall"></a>External call of <b>markItUp!</b></h3>
+    <p>You can use the <b>markItUp!</b> features from anywhere in the page. You can use any properties as in the <a href="index.html#markupset">markupset section</a>, (except *). If you have several instances and no target is defined, the job will be done in the focused editor.</p>
+	<p><strong>Ex.</strong> Wrap selection with &lt;strong&gt;&lt;/strong&gt; in the focused <b>markItUp!</b> editor.</p>
+	<pre>$.markItUp({ openWith:'&lt;strong&gt;', closeWith:'&lt;/strong&gt;' } );</pre>
+
+	<p><strong>Ex.</strong> Wrap selection with [b][/b] in the  <b>markItUp!</b> editor with #bbcode id.</p>
+	<pre>$.markItUp({ target:'#bbcode', openWith:'[b]', closeWith:'[/b]' } );</pre>
+
+    <h3><a name="template" id="template"></a>Html template</h3>
+	<p>
+		If you're using <strong>markItUp!</strong> as a HTML editor, you don't need any parser and  propably want to use the built-in HTML  preview. Since 1.1, <strong>markItUp!</strong> uses a template to display the content into the layout you want with a complete control on its content, Css, styles, charsets, scripts, ... </p>
+	<p>Just edit the preview.html file in <span class="examples">markitup/templates/preview.html</span>. Note that the  content will replace the <span class="examples">&lt;!-- content --&gt;</span> comment.</p>
+	<p> In order to link external files as Css files or scripts, use  <span class="examples">~/</span> to refer to the <strong>markItUp!</strong> root.</p>
+	<pre>&lt;head>
+&lt;title>markItUp! preview template&lt;/title>
+&lt;link rel="stylesheet" type="text/css" href="~/templates/preview.css" />
+&lt;/head>
+</pre>
+	<p>You can use different template for different instances.</p>
+  </div>
+  
+  <div id="sidebar">
+		<div class="menu">
+		<h4>Where to go</h4>
+		<ul>
+			<li class="homepage"><a title="Homepage" class="" href="../home/index.html">Homepage</a></li>
+			<li class="documentation"><a  title="Doc" class="current" href="index.html">Documentation</a></li>
+			<li class="examples"><a title="Examples" class="" href="../examples/index.html">Examples</a></li>
+			<li class="downloads"><a title="Downloads" class="" href="../downloads/index.html">Downloads</a></li>
+		</ul>
+	</div>
+
+		<script type="text/javascript">
+	$(function() {
+		jQuery.getJSON("https://api.github.com/repos/markitup/1.x/commits/master?callback=?", function(data) {
+			var date = data.data.commit.committer.date.replace(/(T(.*))$/g, '');
+			$('.github').text('Last commit: ' + date);
+		}, 'json');
+	});
+	</script>
+	<div class="download">
+		<h4>Download  the latest</h4>
+		<h5><a href="../downloads/index.html">markItUp! pack 1.1.15</a></h5>
+		<small>Aug, 16 2018</small>
+		<a class="button" href="https://github.com/markitup/1.x/releases"><b>markItUp! pack 1.1.15</b><br /> Download now!</a>
+		<div id="github">Fork the code on <a href="http://github.com/markitup/1.x">Github</a>.<span class="github"></span></div>
+	</div>
+
+	<div class="ads">
+    <h4>Sponsors</h4>
+    <p class="extra-ads">
+        This project is supported by <a href="https://hostpresto.com/">HostPresto</a>.
+    </p>
+    <div class="wrapper">
+        <script async type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?zoneid=1386&serve=C6SI42Y&placement=jaysalvatcom" id="_adpacks_js"></script>
+    </div>
+</div>
+
+<!--
+<div class="a2hosting">
+    <h4>Help us!</h4>
+    <p>
+    markItUp users need <a target="_blank" href="https://affiliates.a2hosting.com/idevaffiliate.php?id=3331&url=302">Developer Friendly Hosting</a> (PHP, Ruby, MySQL & more). Check out our sponsor <a target="_blank" href="https://affiliates.a2hosting.com/idevaffiliate.php?id=3331&url=302">A2 Hosting</a>! Sign up for an account and they'll donate $85 to the markItUp project.
+    </p>
+    </div>
+-->
+    
+    
+    		<div class="download">
+			<h4>Buy me a beer!</h4>
+			<p>Support the project! Making a donation will motivate me to keep this project going and allow for further development.</p>
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<table class="donate">
+					<tr>
+						<td style="padding:2px"><strong>Amount</strong></td>
+						<td style="padding:2px"><input type="text" name="amount" value="" size="6" style="text-align:right;" /></td>
+						<td style="padding:2px">
+						<select name="currency_code">
+						<option value="EUR">&euro;</option>
+						<option value="USD">$</option>
+						</select>
+						</td>
+						<td><input type="submit" name="submit" value="Cheers!" /></td>
+					</tr>
+				</table>
+				<input type="hidden" name="cmd" value="_xclick" />
+				<input type="hidden" name="business" value="jay.salvat@gmail.com" />
+				<input type="hidden" name="item_name" value="markItUp" />
+				<input type="hidden" name="item_number" value="MARKITUP-DONATE" />
+				<input type="hidden" name="no_shipping" value="1" />
+				<input type="hidden" name="no_note" value="1" />
+				<input type="hidden" name="tax" value="0" />
+				<input type="hidden" name="bn" value="PP-DonationsBF" />
+				<input type="hidden" name="lc" value="US" />
+			</form>
+		</div>
+  </div>
+  
+  <div id="footer">
+			<div class="wrapper" id="contact">
+			<p>&copy; <a href="../home/index.html"><strong>markItUp!</strong></a> and <a href="http://www.jaysalvat.com">Jay Salvat</a></p>
+			<ul>
+				<li><a href="../home/index.html">Homepage</a></li>
+				<li><a href="index.html">Documentation</a></li>
+				<li><a href="../examples/index.html">Examples</a></li>
+				<li><a href="../downloads/index.html">Downloads</a></li>
+				<li><a href="index.html#jay.salvat%7Cgmail.com" class="mailto">Contact me!</a></li>
+			</ul> 
+
+			<div id="contactWarning">
+				<h5>Important note:</h5>
+				<p>Feel free to contact me for feedbacks, bug reports and suggestions!</p>
+				<p>But sorry, due to a huge lack of time, <b>help and answers to technical questions will be provided to <em>donators only</em></b>. Thanks!</p>
+
+				<ul>
+					<li><a class="ok" href="index.html#">I understand!</a></li>
+					<li><a class="close" href="index.html#">Close</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="http://cdn.buysellads.com/ac/audience.js"></script>  </div>
+</div>
+</body>
+</html>

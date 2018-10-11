@@ -1,0 +1,7 @@
+/* -------------------------------------------------------------------
+// markItUp!
+// By Jay Salvat - http://localhost/markitup/
+// ------------------------------------------------------------------*/
+.markItUp .dateoftheday a {
+	background-image:url("images/date.png");
+}

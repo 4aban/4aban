@@ -1,0 +1,22 @@
+/* TEAM */
+                        
+    4aban
+    Email: alexey_lele [at] mail.com
+    Twitter: @4aban
+    Location: Moscow, Russia
+                                                  
+/* THANKS */
+
+    Liuliu for his CCV javascript port
+    http://liuliu.me/
+    
+    IcoMoon Team for my icon font
+    https://icomoon.io/
+
+    Matthieu Aussaguel for WowJs
+    http://mynameismatthieu.com/WOW/
+                            
+/* SITE */     
+
+    Doctype: HTML5
+    Components: jQuery, WowJs

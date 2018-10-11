@@ -1,0 +1,10 @@
+/* -------------------------------------------------------------------
+// markItUp!
+// By Jay Salvat - http://localhost/markitup/
+// ------------------------------------------------------------------*/
+.markItUp .save a {
+	background-image:url("images/disk-save.png");
+}
+.markItUp .load a {
+	background-image:url("images/disk-load.png");
+}

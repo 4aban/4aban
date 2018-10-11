@@ -1,0 +1,7 @@
+/* -------------------------------------------------------------------
+// markItUp!
+// By Jay Salvat - http://localhost/markitup/
+// ------------------------------------------------------------------*/
+.markItUp .tinyUrl a {
+	background-image:url("images/tinyurl.png");
+}

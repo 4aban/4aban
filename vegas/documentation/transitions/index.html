@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description"><meta property="og:title" content="Transitions - Documentation - Vegas Background SlideShow"><meta property="og:description"><meta property="og:url" content="http://localhost/vegas"><meta property="og:image" content="http://localhost/vegas/img/screenshot.jpg"><link rel="author" href="../../humans.txt" type="text/plain"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,900"><link rel="stylesheet" href="https://jaysalvat.github.io/vegas/releases/latest/vegas.min.css"><link rel="stylesheet" href="../../css/styles.min.css"><title>Transitions - Documentation - Vegas Background SlideShow</title><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-111088-14','auto');ga('send','pageview');</script></head><body><div class="documentation documentation-transitions"><div class="documentation-header"><div class="header container"><div class="header-logo"><a href="../../index.html">Vegas <small>background slideshow</small></a></div><div class="header-menu"><a id="do-show-menu" href="index.html#" class="icon-bars"></a></div></div><div class="documentation-header-wrapper"><h1>Transitions</h1><p>Transitions and Animations</p></div></div><div class="documentation-body"><div class="container"><div class="row"><div class="medium-8"><h2 id="transitions">Transitions</h2><p><strong>Vegas</strong> uses CSS3 transitions, older browsers will display a simple fade transition.</p><div class="code-block transition-code"><pre class="syntax-block">$elmt.vegas({
+    slides: [
+        { src: <span class="syntax-string">'/img/slide1.jpg'</span> },
+        { src: <span class="syntax-string">'/img/slide2.jpg'</span> },
+        { src: <span class="syntax-string">'/img/slide3.jpg'</span> }
+    ],
+    transition: <span class="syntax-string">'<span id="code-transition" class="code-transition">fade</span>'</span>
+});</pre></div><div id="test3-1" class="test"></div><ul class="button-list transition-list"><li class="active">fade</li><li>fade2</li><li>slideLeft</li><li>slideLeft2</li><li>slideRight</li><li>slideRight2</li><li>slideUp</li><li>slideUp2</li><li>slideDown</li><li>slideDown2</li><li>zoomIn</li><li>zoomIn2</li><li>zoomOut</li><li>zoomOut2</li><li>swirlLeft</li><li>swirlLeft2</li><li>swirlRight</li><li>swirlRight2</li><li>burn</li><li>burn2</li><li>blur</li><li>blur2</li><li>flash</li><li>flash2</li></ul><p> Two versions are available for each transition.
+ The subtle nuance is a transition is also applied to the disapearing slide too.
+ The transition duration is set in milliseconds by the <span class="option">transitionDuration</span> option.</p><h3>Random transitions</h3><p> Transition can be set to <span class="value">random</span> for a randomly picked transition.
+ You can define a list of specific transitions with an array.</p><div class="code-block"><pre class="syntax-block">$elmt.vegas({
+    slides: [
+        { src: <span class="syntax-string">'/img/slide1.jpg'</span> },
+        { src: <span class="syntax-string">'/img/slide2.jpg'</span> },
+        { src: <span class="syntax-string">'/img/slide3.jpg'</span> }
+    ],
+    transition: [ <span class="syntax-string">'fade'</span>, <span class="syntax-string">'zoomOut'</span>, <span class="syntax-string">'swirlLeft'</span> ]
+});</pre></div><h3>Custom transitions</h3><p> You can create your own transitions.
+ A transition has 3 classes. They must be prefixed by <code>.vegas-transition</code> to be recognized.<code>.vegas-transition-{name}</code> is the initial state applied when the slide is created.<code>.vegas-transition-{name}-in</code> is applied when the slide appears.<code>.vegas-transition-{name}-out</code> is applied when the slide disappears.</p><p>It's a good practice to provide 2 versions. Below the default fade transition.</p><div class="code-block"><pre class="syntax-block">.vegas-transition-fade,
+.vegas-transition-fade2 {
+    opacity: <span class="syntax-string">0</span>;
+}
+
+.vegas-transition-fade-in,
+.vegas-transition-fade2-in {
+    opacity: <span class="syntax-string">1</span>;
+}
+
+.vegas-transition-fade2-out {
+    opacity: <span class="syntax-string">0</span>;
+}</pre></div><p> In order to be available in the random mode, new transitions must be added to the transitions list.</p><div class="code-block"><pre class="syntax-block">$elmt.vegas({
+    slides: [
+        { src: <span class="syntax-string">'/img/slide1.jpg'</span> },
+        { src: <span class="syntax-string">'/img/slide2.jpg'</span> },
+        { src: <span class="syntax-string">'/img/slide3.jpg'</span> }
+    ],
+    transitionRegister: [ <span class="syntax-string">'myTransition1'</span>, <span class="syntax-string">'myTransition2'</span> ]
+});</pre></div><h2 id="animations">Animations</h2><p><strong>Vegas</strong> uses CSS3 animations, older browsers will ignore them.</p><div class="code-block animation-code"><pre class="syntax-block">$elmt.vegas({
+    slides: [
+        { src: <span class="syntax-string">'/img/slide1.jpg'</span> },
+        { src: <span class="syntax-string">'/img/slide2.jpg'</span> },
+        { src: <span class="syntax-string">'/img/slide3.jpg'</span> }
+    ],
+    animation: <span class="syntax-string">'<span id="code-animation" class="code-animation">kenburns</span>'</span>
+});</pre></div><div id="test3-2" class="test"></div><ul class="button-list animation-list"><li class="active">kenburns</li><li>kenburnsUp</li><li>kenburnsDown</li><li>kenburnsRight</li><li>kenburnsLeft</li><li>kenburnsUpLeft</li><li>kenburnsUpRight</li><li>kenburnsDownLeft</li><li>kenburnsDownRight</li><li>random</li></ul><p> The animation duration is set in milliseconds by the <span class="option">animationDuration</span> option.</p><h3>Random animations</h3><p> Animation can be set to <span class="value">random</span> for a randomly picked animation.
+ You can define a list of specific animations with an array.</p><div class="code-block"><pre class="syntax-block">$elmt.vegas({
+    slides: [
+        { src: <span class="syntax-string">'/img/slide1.jpg'</span> },
+        { src: <span class="syntax-string">'/img/slide2.jpg'</span> },
+        { src: <span class="syntax-string">'/img/slide3.jpg'</span> }
+    ],
+    animation: [ <span class="syntax-string">'kenburnsUp'</span>, <span class="syntax-string">'kenburnsDown'</span>, <span class="syntax-string">'kenburnsLeft'</span>, <span class="syntax-string">'kenburnsRight'</span> ]
+});</pre></div><h3>Custom animations</h3><p> You can create your own animations. They must be named as <code>.vegas-animation-{name}</code> to be recognized.
+ Below the default kenburns animation (no vendor prefixes).</p><div class="code-block"><pre class="syntax-block">.vegas-animation-kenburns {
+    animation: <span class="syntax-string">kenburns ease-out</span>;
+}
+
+@keyframes kenburns {
+    0% {
+        transform: <span class="syntax-string">scale(1.5)</span>;
+    }
+    100% {
+        transform: <span class="syntax-string">scale(1)</span>;
+    }
+}</pre></div><p> In order to be available in the random mode, new animations must be added to the animations list.</p><div class="code-block"><pre class="syntax-block">$elmt.vegas({
+    slides: [
+        { src: <span class="syntax-string">'/img/slide1.jpg'</span> },
+        { src: <span class="syntax-string">'/img/slide2.jpg'</span> },
+        { src: <span class="syntax-string">'/img/slide3.jpg'</span> }
+    ],
+    animationRegister: [ <span class="syntax-string">'myAnimation1'</span>, <span class="syntax-string">'myAnimation2'</span> ]
+});</pre></div></div><div class="medium-4"><div class="block"><h3>Zip file</h3><p id="version">Download the last version (<span>2.1.x</span>).</p><a href="https://jaysalvat.github.io/vegas/releases/latest/vegas.zip" onclick="ga('send', 'event', 'Download', 'Click', '/vegas.zip')" class="button">Download</a></div><div class="block"><h3>Source code</h3><p> 
+Fork the project and contribute.</p><a href="https://github.com/jaysalvat/vegas" onclick="ga('send', 'event', 'Go to Github', 'Click', 'https://github.com/jaysalvat/vegas')" class="button">Source</a><div class="github-buttons"><iframe src="https://ghbtns.com/github-btn.html?user=jaysalvat&repo=vegas&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="25"></iframe><iframe src="https://ghbtns.com/github-btn.html?user=jaysalvat&repo=vegas&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="25"></iframe></div></div><div class="block"><h3>Need support?</h3><p>Don't waste your precious time, support is <strong>available for <span>24$</span></strong>. Ask your question and quickly receive a ZIP file with a clear running example with commented code and assets solving your problem.</p><a href="http://localhost/vegas/documentation/jay.salvat#gmail.com?subject=%5Bvegas%20support%5D%20I'd%20like%20to%20hire%20you" class="button email">Ask for Support</a></div><div class="block"><div class="sponsors"><script async="" type="text/javascript" src="http://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=jaysalvatcom" id="_carbonads_js"></script></div></div></div></div></div></div><nav class="menu"><div class="menu-container container"><a id="do-hide-menu" href="index.html#" class="menu-close icon-close"></a><div class="menu-wrapper"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../demo/index.html">Demonstration</a></li><li><a href="../setup/index.html">Set Up</a></li><li><a href="../settings/index.html">Settings</a></li><li class="menu-active"><a href="index.html">Transitions</a></li><li><a href="../methods/index.html">Methods</a></li></ul></div></div></nav></div><script src="https://code.jquery.com/jquery-2.1.3.min.js"></script><script src="https://bar.jaysalvat.com/bar.js"></script><script src="https://jaysalvat.github.io/vegas/releases/latest/vegas.min.js"></script><script src="../../js/app.min.js"></script></body></html>
