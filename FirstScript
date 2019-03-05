@@ -1,0 +1,16 @@
+#!/bin/bash
+echo Serch...
+cd /Users/a1i3n/Documents/www/vegas/demo/img/ 
+wget http://vegas.jaysalvat.com/demo/img/poster-jg.jpg
+wget http://vegas.jaysalvat.com/demo/img/poster-ja.jpg
+wget http://vegas.jaysalvat.com/demo/img/poster-mr.jpg
+wget http://vegas.jaysalvat.com/demo/img/poster-bw.jpg
+wget http://vegas.jaysalvat.com/demo/img/poster-eg.jpg
+wget http://vegas.jaysalvat.com/demo/img/poster-jb.jpg
+wget http://vegas.jaysalvat.com/demo/img/poster-rd.jpg
+wget http://vegas.jaysalvat.com/demo/img/poster-rl.jpg
+wget http://vegas.jaysalvat.com/demo/img/poster-dh.jpg
+wget http://vegas.jaysalvat.com/demo/img/poster-pb.jpg
+wget http://vegas.jaysalvat.com/demo/img/posterja.jpg
+wget http://vegas.jaysalvat.com/demo/img/poster-dh.jpg
+echo Compite!
